@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Hunt</title>
+    <link rel="stylesheet" href="{{url_for('static', filename="style.css")}}">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/job.png') }}">
+</head>
+<body>
+    <main>
+        <nav>
+            <div class="nav-left">
+                <a href="index.html">
+                    <img class="logo" src="{{url_for('static', filename='images/job.png')}}" alt="logo">
+                    <h5>Job<span> Hunt</span></h5>
+                </a>
+            </div>
+            <div class="nav-right">
+                <button><a href="/job_hunt">Get Started</a></button>
+            </div>
+        </nav>
+        <div class="banner">
+            <div class="banner-left">
+                <h1>Find your dream job fast and build your <span>career.</span></h1>
+                <p>We help you to find the best job, remotely to build your future and build a better digital era and work .</p>
+                <button><a href="/job_hunt">Find Job Now</a></button>
+            </div>
+            <div class="banner-right">
+                <div class="cardy2"><img class="glassdoor" src="{{url_for('static',filename="images/glassdoor.png")}}" alt=""></div>
+                <div class="cardy">
+                    <img class="indeed" src="{{url_for('static', filename="images/indeed.png")}}" alt="">
+                </div>
+                <img class="person" src="{{url_for('static', filename="images/jobserach.png")}}" alt="">
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

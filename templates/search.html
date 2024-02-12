@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static', filename="style.css")}}">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/job.png') }}">
+    <title>Job Hunt</title>
+  </head>
+  <body>
+    <main>
+   
+      <nav>
+        <div class="nav-left">
+            <a href="index.html">
+              <img class="logo" src="{{url_for('static', filename='images/job.png')}}" alt="logo">
+                <h5>Job<span> Hunt</span></h5>
+            </a>
+        </div>
+        <div class="nav-right">
+          <button><a href="/contact_us">Contact Us</a></button>
+        </div>
+      </nav>
+      <div class="form-hold">
+        <h4>Search Job</h4>
+        {% with messages = get_flashed_messages() %}
+        {%if messages%}
+        {%for msg in messages%}
+          <p class="flashlogout">{{msg}} </p>
+        {%endfor%}
+        {%endif%}
+      {% endwith%}
+        <!-- form  -->
+        <form action="/scrapejobs" method="get">
+            <!-- Job Title -->
+          <label for="jobTitle">Job Title</label>
+          <input
+            class="input"
+            type="text"
+            id="jobTitle"
+            name="search_term"
+            placeholder="Enter Job Role" required
+          />
+          <!-- Location -->
+          <div class="ins">
+            <div class="left">
+              <label for="location">Location</label>
+              <input
+                class="ii"
+                type="text"
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Enter Location" required
+              />
+            </div>
+
+            <!-- Date -->
+            <div class="right">
+              <label for="date">Year</label>
+              <input class="ii" type="date" id="date" name="date" required />
+            </div>
+          </div>
+          <!-- File Type -->
+          <div class="ins">
+            <label for="fileType">File Type</label>
+            <select class="input" name="file" id="file">
+              <option value="Excel">Excel</option>
+              <option value="CSV">CSV</option>
+            </select>
+          </div>
+          <div class="ins">
+            <label for="country">country</label>
+            <select class="input" name="country" id="file">
+              <option value="USA">USA</option>
+              <option value="Australia">australia</option>
+              <option value="Germany">germany</option>
+              <option value="SouthAfrica">southafrica</option>
+              <option value="switzerland">switzerland</option>
+              <option value="Nigeria">nigeria</option>
+              <option value="berlin">berlin</option>
+            </select>
+          </div>
+          <!-- Sites -->
+          <div class="site">
+            <label for="site">Website</label>
+            <div class="sites">
+                <div class="all">
+                    <input class="single" type="checkbox" name="sitename" value="indeed" >
+                    <span>Indeed</span>
+                </div>
+                <div class="all">
+                    <input class="single" type="checkbox" name="sitename" value="glassdoor" >
+                    <span>Glassdoor</span>
+                </div>
+                <div class="all">
+                    <input class="single" type="checkbox" name="sitename" value="linkedin" >
+                    <span>Linkedin</span>
+                </div>
+            </div>
+          </div>
+          <button type="submit">Find Job</button>
+        </form>
+      </div>
+    </main>
+  </body>
+  <script defer src="{{url_for('static', filename='script.js')}}"></script>
+</html>
