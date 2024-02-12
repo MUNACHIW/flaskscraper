@@ -64,6 +64,8 @@ def contact():
 
 
 
+
 if __name__ == '__main__':
-   app.run(port=3000, debug=True)
+    # This is used when running locally only. The Flask development server is not used in production.
+    app.run(port=3000, debug=True)
 
