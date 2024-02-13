@@ -21,7 +21,9 @@ def scrape_jobs_route_csv():
         if site_name.lower() == 'glassdoor' and country_indeed.lower() == 'nigeria':
             flash("The site Glassdoor does not work for countries in Nigeria")
             return redirect('/job_hunt')    
-
+        if site_name.lower() == 'glassdoor and country_indeed.lower()
+ =='southafrica':
+            flash("The site Glassdoor does not work for countries in South Africa")
         jobs = scrape_jobs(
             site_name=site_name,
             search_term=search_term,
