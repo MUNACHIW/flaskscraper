@@ -21,8 +21,8 @@ def scrape_jobs_route_csv():
 
         if site_name.lower() == 'glassdoor' and country_indeed.lower() == 'nigeria':
             flash("The site Glassdoor does not work for countries in Nigeria")
-            return redirect('/job_hunt')    
-        time.sleep(10)
+            return redirect('/job_hunt')
+
         jobs = scrape_jobs(
             site_name=site_name,
             search_term=search_term,
@@ -33,8 +33,7 @@ def scrape_jobs_route_csv():
 
         print(f"Found {len(jobs)} jobs")
         print(jobs.head())
-        if time.sleep(10):
-             return jsonify({'result':'Task completed'})
+
         file = request.args.get('file')
         if file == "Excel":
             jobs.to_excel("jobs.xlsx", index=False)
@@ -45,6 +44,7 @@ def scrape_jobs_route_csv():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 
 
